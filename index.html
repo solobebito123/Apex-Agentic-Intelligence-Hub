@@ -187,6 +187,50 @@
       background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(56,189,248,0.05));
       border: 1px solid rgba(99,102,241,0.2);
     }
+
+    /* Demo Chat Widget */
+    #demo-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+      width: 380px;
+      max-width: calc(100vw - 48px);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    #demo-widget.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .chat-bubble {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      animation: chatFade 0.3s ease forwards;
+    }
+    .chat-bubble-ai {
+      background: #1e2a4a;
+      color: #fff;
+      border-bottom-left-radius: 4px;
+      border: 1px solid rgba(99,102,241,0.3);
+    }
+    .chat-bubble-user {
+      background: #4f46e5;
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    @keyframes chatFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body class="overflow-x-hidden">
@@ -261,20 +305,19 @@
 
       <!-- Main heading -->
       <h1 class="font-display font-bold text-5xl sm:text-6xl md:text-7xl leading-tight text-white mb-6 animate-fade-up" style="animation-delay:0.15s">
-        The Future of<br />
-        <span class="gradient-text">Autonomous Business</span><br />
-        Growth
+        Stop Losing Leads To<br />
+        <span class="gradient-text">Slow Response Times</span><br />
       </h1>
 
       <!-- Sub-heading -->
       <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 animate-fade-up" style="animation-delay:0.3s">
-        AAIH combines cutting-edge AI agents with real-time market intelligence to automate your growth, close leads 24/7, and surface opportunities while you sleep.
+        AAIH builds "Hybrid AI" agents that text back instantly, qualify leads 24/7, and live in your private infrastructure. No monthly per-contact fees. No dropped balls.
       </p>
 
       <!-- CTA buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style="animation-delay:0.45s">
         <a href="#contact" class="btn-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
-          Start Automating →
+          Secure Your Business Name →
         </a>
         <a href="#services" class="glass px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:border-brand-500 border border-transparent transition-all w-full sm:w-auto text-center">
           Explore Services
@@ -284,16 +327,16 @@
       <!-- Floating stats -->
       <div class="mt-20 grid grid-cols-3 gap-4 max-w-2xl mx-auto animate-fade-up" style="animation-delay:0.6s">
         <div class="stat-card rounded-2xl px-4 py-5 text-center">
-          <div class="text-3xl font-display font-bold gradient-text">24/7</div>
-          <div class="text-xs text-slate-500 mt-1">Always-On Agents</div>
+          <div class="text-3xl font-display font-bold gradient-text"><3s</div>
+          <div class="text-xs text-slate-500 mt-1">Response Time</div>
         </div>
         <div class="stat-card rounded-2xl px-4 py-5 text-center">
-          <div class="text-3xl font-display font-bold gradient-text">Real-Time</div>
-          <div class="text-xs text-slate-500 mt-1">Market Intelligence</div>
+          <div class="text-3xl font-display font-bold gradient-text">Hybrid</div>
+          <div class="text-xs text-slate-500 mt-1">AI Architecture</div>
         </div>
         <div class="stat-card rounded-2xl px-4 py-5 text-center">
-          <div class="text-3xl font-display font-bold gradient-text">0 Delays</div>
-          <div class="text-xs text-slate-500 mt-1">Lead Response</div>
+          <div class="text-3xl font-display font-bold gradient-text">Private</div>
+          <div class="text-xs text-slate-500 mt-1">Data Ownership</div>
         </div>
       </div>
     </div>
@@ -317,11 +360,11 @@
       <div class="text-center mb-16 reveal">
         <div class="inline-block px-3 py-1 rounded-full bg-brand-900/60 border border-brand-700/40 text-brand-300 text-xs font-semibold tracking-widest uppercase mb-4">Our Services</div>
         <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">
-          AI-Powered Tools That<br />
-          <span class="gradient-text">Work While You Don't</span>
+          The "Hybrid AI" Edge:<br />
+          <span class="gradient-text">Bots That Close</span>
         </h2>
         <p class="text-slate-400 max-w-xl mx-auto text-lg">
-          Two flagship solutions engineered to give your business an unfair competitive advantage — automatically.
+          We combine structured, conversion-optimized flows with flexible AI intelligence to handle leads without losing the human touch.
         </p>
       </div>
 
@@ -348,7 +391,7 @@
 
           <h3 class="font-display text-2xl font-bold text-white mb-3">Rapid Responder</h3>
           <p class="text-slate-400 leading-relaxed mb-6">
-            Never lose a lead to slow response times again. Our AI agents handle incoming inquiries, qualify prospects, and respond intelligently — around the clock, every day of the year.
+            90% of leads go cold if not contacted within 5 minutes. Our Rapid Responder handles inquiries instantly, qualifies them against your criteria, and books them straight into your calendar.
           </p>
 
           <!-- Feature list -->
@@ -357,30 +400,24 @@
               <span class="mt-0.5 w-5 h-5 rounded-full bg-brand-900/60 border border-brand-700/40 flex items-center justify-center flex-shrink-0">
                 <svg class="w-3 h-3 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
               </span>
-              <span>AI-powered lead qualification & instant responses</span>
+              <span>Hybrid AI: Decision trees + OpenAI reasoning</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-0.5 w-5 h-5 rounded-full bg-brand-900/60 border border-brand-700/40 flex items-center justify-center flex-shrink-0">
                 <svg class="w-3 h-3 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
               </span>
-              <span>Seamless CRM integration & follow-up sequences</span>
+              <span>Anti-Subscription: Built on your private infrastructure</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-0.5 w-5 h-5 rounded-full bg-brand-900/60 border border-brand-700/40 flex items-center justify-center flex-shrink-0">
                 <svg class="w-3 h-3 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
               </span>
-              <span>Multi-channel: Email, SMS, Web chat, Social DMs</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 w-5 h-5 rounded-full bg-brand-900/60 border border-brand-700/40 flex items-center justify-center flex-shrink-0">
-                <svg class="w-3 h-3 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
-              </span>
-              <span>Escalate hot leads to your team in real time</span>
+              <span>Direct SMS, Email & Social DM Integration</span>
             </li>
           </ul>
 
           <a href="#contact" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors group-hover:gap-3">
-            Learn more <span>→</span>
+            See the Demo <span>→</span>
           </a>
         </div>
 
@@ -401,9 +438,9 @@
             Live Data Streams
           </div>
 
-          <h3 class="font-display text-2xl font-bold text-white mb-3">Real-Time Intelligence</h3>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">Market Intelligence</h3>
           <p class="text-slate-400 leading-relaxed mb-6">
-            Gain a decisive edge with continuous market surveillance. From stock signal generation to platform pricing scrapes (Airbnb, real estate, e-commerce), we surface alpha before the crowd.
+            Stop guessing. Our scrapers pull real-time data from Airbnb, Real Estate portals, and Stock markets to find arbitrage spreads and "alpha" before your competitors.
           </p>
 
           <ul class="space-y-3 text-sm text-slate-400">
@@ -411,66 +448,19 @@
               <span class="mt-0.5 w-5 h-5 rounded-full bg-blue-900/60 border border-blue-700/40 flex items-center justify-center flex-shrink-0">
                 <svg class="w-3 h-3 text-accent-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
               </span>
-              <span>Stock & crypto signal generation with AI analysis</span>
+              <span>Arbitrage Spread Analysis (LTR vs. STR)</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-0.5 w-5 h-5 rounded-full bg-blue-900/60 border border-blue-700/40 flex items-center justify-center flex-shrink-0">
                 <svg class="w-3 h-3 text-accent-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
               </span>
-              <span>Airbnb, real estate & marketplace pricing scrapes</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 w-5 h-5 rounded-full bg-blue-900/60 border border-blue-700/40 flex items-center justify-center flex-shrink-0">
-                <svg class="w-3 h-3 text-accent-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
-              </span>
-              <span>Competitor monitoring & automated alert pipelines</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 w-5 h-5 rounded-full bg-blue-900/60 border border-blue-700/40 flex items-center justify-center flex-shrink-0">
-                <svg class="w-3 h-3 text-accent-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
-              </span>
-              <span>Custom dashboards with real-time data visualization</span>
+              <span>Professional Competitor Surveillance</span>
             </li>
           </ul>
 
           <a href="#contact" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent-400 hover:text-accent-300 transition-colors group-hover:gap-3">
-            Learn more <span>→</span>
+            View Market Hotspots <span>→</span>
           </a>
-        </div>
-      </div>
-
-      <!-- How It Works strip -->
-      <div class="mt-16 glass rounded-3xl p-8 reveal">
-        <p class="text-center text-xs tracking-widest text-slate-500 uppercase font-semibold mb-8">How AAIH Works</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="text-center">
-            <div class="w-12 h-12 icon-ring rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <span class="text-brand-400 font-bold font-display">01</span>
-            </div>
-            <h4 class="text-sm font-semibold text-white mb-1">Connect</h4>
-            <p class="text-xs text-slate-500">Link your platforms & data sources</p>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 icon-ring rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <span class="text-brand-400 font-bold font-display">02</span>
-            </div>
-            <h4 class="text-sm font-semibold text-white mb-1">Configure</h4>
-            <p class="text-xs text-slate-500">Set goals, triggers & response rules</p>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 icon-ring rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <span class="text-brand-400 font-bold font-display">03</span>
-            </div>
-            <h4 class="text-sm font-semibold text-white mb-1">Deploy</h4>
-            <p class="text-xs text-slate-500">Agents go live across all channels</p>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 icon-ring rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <span class="text-brand-400 font-bold font-display">04</span>
-            </div>
-            <h4 class="text-sm font-semibold text-white mb-1">Grow</h4>
-            <p class="text-xs text-slate-500">Watch revenue & insight compound</p>
-          </div>
         </div>
       </div>
     </div>
@@ -497,8 +487,8 @@
                     <svg class="w-5 h-5 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                   </div>
                   <div>
-                    <div class="text-sm font-semibold text-white">AI Core Engine</div>
-                    <div class="text-xs text-slate-500">LLM-powered reasoning & decision-making</div>
+                    <div class="text-sm font-semibold text-white">Hybrid AI Core</div>
+                    <div class="text-xs text-slate-500">Flow-based guardrails + LLM reasoning</div>
                   </div>
                   <div class="ml-auto w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0"></div>
                 </div>
@@ -508,32 +498,10 @@
                     <svg class="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>
                   </div>
                   <div>
-                    <div class="text-sm font-semibold text-white">Market Data Layer</div>
-                    <div class="text-xs text-slate-500">Real-time scraping & signal processing</div>
+                    <div class="text-sm font-semibold text-white">Market Intel Hub</div>
+                    <div class="text-xs text-slate-500">Real-time ScrapingBee surveillance</div>
                   </div>
                   <div class="ml-auto w-2 h-2 rounded-full bg-blue-400 animate-pulse flex-shrink-0" style="animation-delay:0.5s"></div>
-                </div>
-
-                <div class="flex items-center gap-4 p-4 rounded-2xl bg-dark-700/60 border border-white/5">
-                  <div class="w-10 h-10 rounded-xl bg-green-900/40 border border-green-700/40 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
-                  </div>
-                  <div>
-                    <div class="text-sm font-semibold text-white">Lead Automation</div>
-                    <div class="text-xs text-slate-500">Omni-channel outreach & qualification</div>
-                  </div>
-                  <div class="ml-auto w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" style="animation-delay:1s"></div>
-                </div>
-
-                <div class="flex items-center gap-4 p-4 rounded-2xl bg-dark-700/60 border border-white/5">
-                  <div class="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-700/40 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                  </div>
-                  <div>
-                    <div class="text-sm font-semibold text-white">Security & Compliance</div>
-                    <div class="text-xs text-slate-500">Enterprise-grade data protection</div>
-                  </div>
-                  <div class="ml-auto w-2 h-2 rounded-full bg-purple-400 animate-pulse flex-shrink-0" style="animation-delay:1.5s"></div>
                 </div>
               </div>
             </div>
@@ -541,7 +509,7 @@
             <!-- Floating badge -->
             <div class="absolute -bottom-4 -right-4 glass rounded-2xl px-5 py-3 border border-brand-700/30">
               <div class="text-xs text-slate-400">Powered by</div>
-              <div class="text-sm font-bold gradient-text">Next-Gen AI Stack</div>
+              <div class="text-sm font-bold gradient-text">AAIH Private Stack</div>
             </div>
           </div>
         </div>
@@ -551,35 +519,27 @@
           <div class="inline-block px-3 py-1 rounded-full bg-brand-900/60 border border-brand-700/40 text-brand-300 text-xs font-semibold tracking-widest uppercase mb-6">About AAIH</div>
 
           <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-            Bridging AI Automation<br />
-            with <span class="gradient-text-warm">Technical Intelligence</span>
+            The Hub vs.<br />
+            <span class="gradient-text-warm">The Subscription</span>
           </h2>
 
           <p class="text-slate-400 leading-relaxed mb-5">
-            Apex Agentic &amp; Intelligence Hub was founded on a single belief: the most powerful competitive advantage a modern business can have is <strong class="text-slate-200">autonomous, intelligent systems</strong> that never sleep, never miss a signal, and never drop a lead.
+            Traditional AI tools charge you more as your business grows. At AAIH, we build your automation on <strong class="text-slate-200">private infrastructure</strong> that you own.
           </p>
 
           <p class="text-slate-400 leading-relaxed mb-8">
-            We sit at the intersection of enterprise AI automation and technical market intelligence. Our team combines deep expertise in large language models, data engineering, and business automation to build systems that compound in value over time — turning raw data streams and inbound inquiries into measurable revenue.
+            Whether it's our "Rapid Responder" for lead handling or our "Market Intelligence" scrapers, we provide the ultimate system for autonomous growth without the high-ticket coaching fees or per-lead tax of generic platforms.
           </p>
 
           <!-- Value props -->
           <div class="grid grid-cols-2 gap-4 mb-8">
             <div class="glass rounded-2xl p-4">
-              <div class="text-2xl font-bold gradient-text font-display mb-1">AI-First</div>
-              <div class="text-xs text-slate-500">Built on frontier models</div>
+              <div class="text-2xl font-bold gradient-text font-display mb-1">0 Scale Tax</div>
+              <div class="text-xs text-slate-500">No per-contact monthly fees</div>
             </div>
             <div class="glass rounded-2xl p-4">
-              <div class="text-2xl font-bold gradient-text font-display mb-1">Scalable</div>
-              <div class="text-xs text-slate-500">From startup to enterprise</div>
-            </div>
-            <div class="glass rounded-2xl p-4">
-              <div class="text-2xl font-bold gradient-text font-display mb-1">Fast Deploy</div>
-              <div class="text-xs text-slate-500">Live in days, not months</div>
-            </div>
-            <div class="glass rounded-2xl p-4">
-              <div class="text-2xl font-bold gradient-text font-display mb-1">Measurable</div>
-              <div class="text-xs text-slate-500">Clear ROI from day one</div>
+              <div class="text-2xl font-bold gradient-text font-display mb-1">Custom</div>
+              <div class="text-xs text-slate-500">Your logic, your brand</div>
             </div>
           </div>
 
@@ -606,13 +566,11 @@
           <span class="gradient-text">Your Growth?</span>
         </h2>
         <p class="text-slate-400 max-w-lg mx-auto">
-          Tell us about your business and goals. Our team will reach out within 24 hours to map out a custom automation strategy.
+          Tell us about your business. We'll show you exactly how an AAIH "Hybrid" Agent can handle your leads 24/7.
         </p>
       </div>
 
       <div class="grid lg:grid-cols-5 gap-8">
-
-        <!-- Contact Form -->
         <div class="lg:col-span-3 glass rounded-3xl p-8 reveal">
           <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-500 via-accent-400 to-transparent rounded-t-3xl"></div>
           <h3 class="font-display text-xl font-bold text-white mb-6">Send a Message</h3>
@@ -627,137 +585,66 @@
                 <input type="email" name="email" required placeholder="jane@company.com" class="form-input w-full px-4 py-3 rounded-xl text-sm" />
               </div>
             </div>
-
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-2 tracking-wide">Company / Website</label>
-              <input type="text" name="company" placeholder="Acme Corp or acme.com" class="form-input w-full px-4 py-3 rounded-xl text-sm" />
-            </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-400 mb-2 tracking-wide">Service Interest</label>
               <select name="service" class="form-input w-full px-4 py-3 rounded-xl text-sm" style="background:rgba(255,255,255,0.04);">
-                <option value="" style="background:#0f1629">Select a service…</option>
                 <option value="rapid-responder" style="background:#0f1629">Rapid Responder – 24/7 AI Lead Handling</option>
-                <option value="real-time-intel" style="background:#0f1629">Real-Time Intelligence – Market Signals</option>
-                <option value="both" style="background:#0f1629">Both Services</option>
-                <option value="custom" style="background:#0f1629">Custom Solution</option>
+                <option value="market-intel" style="background:#0f1629">Market Intelligence – STR/Arbitrage Scrapes</option>
               </select>
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-400 mb-2 tracking-wide">Tell Us About Your Needs</label>
-              <textarea name="message" rows="4" required placeholder="Describe your current challenge or goal…" class="form-input w-full px-4 py-3 rounded-xl text-sm resize-none"></textarea>
+              <textarea name="message" rows="4" required placeholder="Describe your current challenge..." class="form-input w-full px-4 py-3 rounded-xl text-sm resize-none"></textarea>
             </div>
-
             <button type="submit" id="submit-btn" class="btn-primary w-full py-3.5 rounded-xl text-sm font-semibold text-white">
               Send Message →
             </button>
           </form>
-
-          <!-- Success state -->
           <div id="form-success" class="hidden text-center py-8">
-            <div class="w-14 h-14 rounded-full bg-green-900/40 border border-green-700/40 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-7 h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            </div>
             <h4 class="font-display text-xl font-bold text-white mb-2">Message Sent!</h4>
             <p class="text-slate-400 text-sm">Thanks for reaching out. We'll be in touch within 24 hours.</p>
           </div>
         </div>
-
-        <!-- Side panel -->
-        <div class="lg:col-span-2 flex flex-col gap-6">
-
-          <!-- Calendly CTA -->
-          <div class="glass rounded-3xl p-6 reveal neon-hover" style="transition-delay:0.1s">
-            <div class="w-12 h-12 icon-ring rounded-2xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <h4 class="font-display text-lg font-bold text-white mb-2">Book a Strategy Call</h4>
-            <p class="text-slate-400 text-sm mb-4 leading-relaxed">Skip the form — book a 30-minute discovery call directly on our calendar.</p>
-            <!-- 🔗 Replace href with your actual Calendly link -->
-            <a href="https://calendly.com/YOUR_CALENDLY_LINK" target="_blank" rel="noopener noreferrer" class="btn-primary block text-center py-3 rounded-xl text-sm font-semibold text-white">
-              Schedule on Calendly →
-            </a>
-            <p class="text-xs text-slate-600 text-center mt-2">Free 30-min discovery call</p>
-          </div>
-
-          <!-- Contact details -->
-          <div class="glass rounded-3xl p-6 reveal" style="transition-delay:0.2s">
-            <h4 class="font-display text-sm font-semibold text-white mb-4">Direct Contact</h4>
-            <div class="space-y-4">
-              <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-dark-700 border border-white/5 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <a href="mailto:hello@aaih.ai" class="text-sm text-slate-400 hover:text-white transition-colors">hello@aaih.ai</a>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-dark-700 border border-white/5 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-                </div>
-                <a href="https://aaih.ai" class="text-sm text-slate-400 hover:text-white transition-colors">aaih.ai</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Social -->
-          <div class="glass rounded-3xl p-6 reveal" style="transition-delay:0.3s">
-            <h4 class="font-display text-sm font-semibold text-white mb-4">Follow AAIH</h4>
-            <div class="flex gap-3">
-              <a href="#" aria-label="LinkedIn" class="w-10 h-10 glass rounded-xl flex items-center justify-center hover:border-brand-500 border border-transparent transition-all">
-                <svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
-              <a href="#" aria-label="Twitter/X" class="w-10 h-10 glass rounded-xl flex items-center justify-center hover:border-brand-500 border border-transparent transition-all">
-                <svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.855L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-              <a href="#" aria-label="GitHub" class="w-10 h-10 glass rounded-xl flex items-center justify-center hover:border-brand-500 border border-transparent transition-all">
-                <svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- ===================== DEMO CHAT WIDGET ===================== -->
+  <div id="demo-widget" class="glass rounded-2xl p-4 shadow-2xl border border-brand-500/30">
+    <div class="flex items-center gap-3 border-b border-white/5 pb-3 mb-4">
+      <div class="w-8 h-8 rounded-lg icon-ring flex items-center justify-center">
+        <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <div>
+        <div class="text-xs font-bold text-white">AAIH Rapid Responder</div>
+        <div class="text-[10px] text-green-400 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> Online
+        </div>
+      </div>
+    </div>
+    <div id="chat-content" class="h-64 overflow-y-auto flex flex-col px-1 scrollbar-hide">
+      <!-- Chat bubbles injected here -->
+    </div>
+    <div id="chat-options" class="mt-4 flex flex-wrap gap-2">
+      <!-- Buttons injected here -->
+    </div>
+  </div>
+
   <footer class="border-t border-white/5 py-10 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl icon-ring flex items-center justify-center">
-          <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-        </div>
-        <span class="font-display font-bold text-sm text-slate-300">
-          <span class="gradient-text">AAIH</span> · Apex Agentic &amp; Intelligence Hub
-        </span>
-      </div>
-
-      <nav class="flex items-center gap-6 text-xs text-slate-500">
-        <a href="#home"     class="hover:text-slate-300 transition-colors">Home</a>
-        <a href="#services" class="hover:text-slate-300 transition-colors">Services</a>
-        <a href="#about"    class="hover:text-slate-300 transition-colors">About</a>
-        <a href="#contact"  class="hover:text-slate-300 transition-colors">Contact</a>
-      </nav>
-
+      <span class="font-display font-bold text-sm text-slate-300">
+        <span class="gradient-text">AAIH</span> · Apex Agentic &amp; Intelligence Hub
+      </span>
       <p class="text-xs text-slate-600">© 2026 AAIH. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ===================== SCRIPTS ===================== -->
   <script>
     // --- Navbar scroll effect ---
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      if (window.scrollY > 40) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
     });
 
     // --- Mobile menu toggle ---
@@ -766,12 +653,8 @@
     let menuOpen = false;
     menuToggle.addEventListener('click', () => {
       menuOpen = !menuOpen;
-      if (menuOpen) {
-        mobileMenu.style.maxHeight = '400px';
-        mobileMenu.style.opacity = '1';
-      } else {
-        closeMobileMenu();
-      }
+      mobileMenu.style.maxHeight = menuOpen ? '400px' : '0';
+      mobileMenu.style.opacity = menuOpen ? '1' : '0';
     });
     function closeMobileMenu() {
       menuOpen = false;
@@ -782,31 +665,87 @@
     // --- Scroll reveal ---
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.12 });
     revealEls.forEach(el => observer.observe(el));
 
-    // --- Contact form ---
+    // --- Demo Chat Logic ---
+    const chatContent = document.getElementById('chat-content');
+    const chatOptions = document.getElementById('chat-options');
+    const demoWidget = document.getElementById('demo-widget');
+
+    function addBubble(text, side = 'ai') {
+      const b = document.createElement('div');
+      b.className = \`chat-bubble chat-bubble-\${side}\`;
+      b.textContent = text;
+      chatContent.appendChild(b);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    function setOptions(options) {
+      chatOptions.innerHTML = '';
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'px-3 py-1.5 rounded-lg bg-brand-900/40 border border-brand-500/30 text-brand-300 text-xs hover:bg-brand-500 hover:text-white transition-all';
+        btn.textContent = opt.text;
+        btn.onclick = opt.action;
+        chatOptions.appendChild(btn);
+      });
+    }
+
+    const demoFlow = {
+      start: () => {
+        addBubble("Hi! I'm the AAIH Rapid Responder. 🚀");
+        setTimeout(() => {
+          addBubble("I close the 'Profit Gap' by responding to your leads in under 3 seconds. Want a live demo?");
+          setOptions([
+            { text: "Yes, show me!", action: () => demoFlow.niche() },
+            { text: "How much?", action: () => demoFlow.pricing() }
+          ]);
+        }, 1000);
+      },
+      niche: () => {
+        addBubble("Yes, show me!", "user");
+        setTimeout(() => {
+          addBubble("Excellent choice. What's your industry?");
+          setOptions([
+            { text: "Vacation Rentals", action: () => demoFlow.sample('Rentals') },
+            { text: "Real Estate", action: () => demoFlow.sample('Real Estate') }
+          ]);
+        }, 800);
+      },
+      sample: (niche) => {
+        addBubble(niche, "user");
+        setTimeout(() => {
+          addBubble(\`Got it. If a lead asked about your \${niche} availability right now, I'd text back: "Hi! I just saw your inquiry. Yes, we are available! Would you like to see a virtual tour or book a viewing?"\`);
+          setTimeout(() => {
+            addBubble("I qualify the lead and book the call so you only talk to 'hot' prospects. Ready to secure your territory?");
+            setOptions([{ text: "Let's Get Started", action: () => location.href = '#contact' }]);
+          }, 1500);
+        }, 800);
+      },
+      pricing: () => {
+        addBubble("How much?", "user");
+        setTimeout(() => {
+          addBubble("We don't charge per-contact fees. You own the infrastructure. Our Hub fee is a flat monthly rate that never scales with your volume.");
+          setOptions([{ text: "See Full Pitch", action: () => demoFlow.niche() }]);
+        }, 800);
+      }
+    };
+
+    setTimeout(() => {
+      demoWidget.classList.add('visible');
+      demoFlow.start();
+    }, 2000);
+
     function handleSubmit(e) {
       e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      const form = document.getElementById('contact-form');
-      const success = document.getElementById('form-success');
-
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-
-      // Simulate async send (replace with real endpoint / Formspree / EmailJS)
+      document.getElementById('submit-btn').textContent = 'Sending…';
       setTimeout(() => {
-        form.style.display = 'none';
-        success.classList.remove('hidden');
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('form-success').classList.remove('hidden');
       }, 1200);
     }
   </script>
-
 </body>
 </html>
