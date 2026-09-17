@@ -448,7 +448,7 @@
   <span class="text-2xl">📱</span>
   <div>
     <p class="text-sm text-slate-400 uppercase tracking-widest font-semibold">Text Before Calling</p>
-    <a href="sms:+14079849803" class="text-white font-bold text-lg hover:text-purple-400 transition-colors">(407) 984-9803</a>
+    <a href="sms:+17152603152" class="text-white font-bold text-lg hover:text-purple-400 transition-colors">(715) 260-3152</a>
   </div>
 </div>
       </div>
@@ -476,70 +476,57 @@
 
   <!-- DEMO CHAT WIDGET -->
   <div id="demo-widget" class="glass-card rounded-3xl p-5 shadow-2xl border-indigo-500/20 w-80 md:w-96 fixed bottom-6 right-6 z-[60] flex flex-col scale-0 opacity-0 pointer-events-none transition-all duration-500 origin-bottom-right">
-    <div class="flex items-center gap-3 border-b border-white/5 pb-4 mb-4">
-      <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold">R</div>
-      <div>
-        <div class="text-sm font-bold text-white">AAIH Rapid Responder</div>
-        <div class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1 animate-pulse"></span>ONLINE</div>
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">A</div>
+        <div class="text-sm font-bold text-white">AAIH AI Assistant</div>
+      </div>
+      <div class="flex gap-2">
+        <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+        <span class="text-xs text-emerald-400">Live</span>
       </div>
     </div>
-    <div id="chat-messages" class="flex-1 overflow-y-auto space-y-3 min-h-32 max-h-48">
+    <div id="chat-messages" class="flex-1 overflow-y-auto space-y-3 mb-4" style="max-height: 300px">
       <div class="flex gap-2">
         <div class="w-8 h-8 rounded-xl bg-indigo-600/30 flex-shrink-0 flex items-center justify-center text-indigo-400 text-xs font-bold">R</div>
-        <div class="bg-white/5 rounded-2xl p-3 text-sm text-slate-300">
-          Hi, I am the AAIH Rapid Responder. Are you interested in automating your Airbnb responses?
-        </div>
+        <div class="bg-white/5 rounded-2xl p-3 text-sm text-slate-300 max-w[70%]">Hey! I'm the AAIH Rapid Responder. How can I help you scale your Airbnb business today?</div>
       </div>
     </div>
-    <div class="mt-4 flex gap-2">
-      <input id="chat-input" type="text" placeholder="Type a message..." class="flex-1 bg-white/5 rounded-xl px-3 py-2 text-sm text-white outline-none border border-white/10 focus:border-indigo-500" onkeypress="if(event.key=='Enter')sendChat()">
-      <button onclick="sendChat()" class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white hover:bg-indigo-500">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9-10-2-2m0 0l-10 4m10-4-3 10M7 5l2-5M3 5l4 1"/></svg>
-      </button>
+    <div class="flex gap-2">
+      <input id="chat-input" type="text" placeholder="Ask about lead automation..." class="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500" onkeypress="if(event.key==='Enter') sendChatMessage()">
+      <button onclick="sendChatMessage()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-bold">Send</button>
     </div>
   </div>
-
-  <!-- FLOATING CHAT TOGGLE -->
-  <button id="chat-toggle" class="fixed bottom-6 right-6 z-[70] w-16 h-16 bg-indigo-600 hover:bg-indigo-500 rounded-full flex items-center justify-center text-white shadow-2xl shadow-indigo-500/30 btn-glow" onclick="toggleChat()">
-    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+  <button id="demo-toggle" onclick="toggleDemo()" class="group fixed bottom-6 right-6 z-[61] w-16 h-16 bg-indigo-600 hover:bg-indigo-500 rounded-full shadow-2xl flex items-center justify-center btn-glow">
+    <svg id="chat-icon" class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+    <svg id="close-icon" class="w-6 h-6 text-white hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
   </button>
-
   <script>
-    AOS.init({ duration: 800, once: true });
-    // Mobile menu
-    document.getElementById('mobile-menu-btn').addEventListener('click', function(){
-      var menu = document.getElementById('mobile-menu');
-      if(menu) menu.classList.toggle('hidden');
-    });
-    // Chat toggle
-    function toggleChat() {
-      var widget = document.getElementById('demo-widget');
-      if (widget.classList.contains('scale-0')) {
-        widget.classList.remove('scale-0', 'opacity-0', 'pointer-events-none');
-        widget.classList.add('scale-100', 'opacity-100');
-      } else {
-        widget.classList.remove('scale-100', 'opacity-100');
-        widget.classList.add('scale-0', 'opacity-0', 'pointer-events-none');
-      }
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true });
+    function toggleDemo() {
+      const w = document.getElementById('demo-widget');
+      const chatIcon = document.getElementById('chat-icon');
+      const closeIcon = document.getElementById('close-icon');
+      w.classList.toggle('scale-0');
+      w.classList.toggle('opacity-0');
+      w.classList.toggle('pointer-events-none');
+      chatIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
     }
-    // Chat send
-    function sendChat() {
-      var input = document.getElementById('chat-input');
-      var msgs = document.getElementById('chat-messages');
+    function sendChatMessage() {
+      const input = document.getElementById('chat-input');
+      const msgs = document.getElementById('chat-messages');
       if (!input.value.trim()) return;
-      var userMsg = document.createElement('div');
+      const userMsg = document.createElement('div');
       userMsg.className = 'flex justify-end';
-      userMsg.innerHTML = `<div class="bg-indigo-600/30 rounded-2xl p-3 text-sm text-slate-200 max-w-[70%]">${input.value}</div>`;
+      userMsg.innerHTML = `<div class="bg-indigo-600/30 rounded-2xl p-3 text-sm text-white max-w[75%]">${input.value}</div>`;
       msgs.appendChild(userMsg);
-      var responses = [
-        "Thanks for reaching out! My system responded in under 3 seconds. Our team will follow up to discuss your portfolio.",
-        "I can help you reduce response time from hours to under 3 seconds. What market are you in?",
-        "Great question! The Kissimmee market is showing a 308% ROI spread right now. Want the full report?"
-      ];
+      msgs.scrollTop = msgs.scrollHeight;
+      const responses = ['Our AI responds in under 3 seconds, automatically qualifying leads and booking calls.', 'We use private infrastructure, so you own 100% of your data.', 'Kissimmee currently shows a 308% ROI spread over LMR. ', 'Zero per-contact fees. You pay once, scale infinitely.'];
       setTimeout(function() {
-        var botMsg = document.createElement('div');
+        const botMsg = document.createElement('div');
         botMsg.className = 'flex gap-2';
-        botMsg.innerHTML = `<div class="w-8 h-8 rounded-xl bg-indigo-600/30 flex-shrink-0 flex items-center justify-center text-indigo-400 text-xs font-bold">R</div><div class="bg-white/5 rounded-2xl p-3 text-sm text-slate-300 max-w[70%]">${responses[Math.floor(Math.random()*responses.length)] </div>`;
+        botMsg.innerHTML = `<div class="w-8 h-8 rounded-xl bg-indigo-600/30 flex-shrink-0 flex items-center justify-center text-indigo-400 text-xs font-bold">R</div><div class="bg-white/5 rounded-2xl p-3 text-sm text-slate-300 max-w[70%]">${responses[Math.floor(Math.random()*responses.length)] }</div>`;
         msgs.appendChild(botMsg);
         msgs.scrollTop = msgs.scrollHeight;
       }, 2800);
